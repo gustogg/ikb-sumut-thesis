@@ -92,4 +92,3 @@ Untuk memperbarui dataset atau tampilan website:
 4. Commit dan push perubahan ke GitHub.
 5. Pastikan deployment Netlify selesai, lalu periksa website yang dipublikasikan.
 
-Jangan menambahkan kredensial, konfigurasi rahasia, dump database, atau data sensitif ke repository publik.
