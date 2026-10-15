@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Visualisasi kerentanan wilayah kabupaten dan kota di Sumatera Utara."
+    >
+
+        <meta name="robots" content="noindex, nofollow, noarchive">
+    
+    <script>
+        const savedTheme = localStorage.getItem('ikbs-theme');
+        const prefersDark = window.matchMedia(
+            '(prefers-color-scheme: dark)'
+        ).matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+    <link
+    rel="icon"
+    type="image/x-icon"
+    href="/assets/images/favicon.ico?v=1"
+    >
+
+    <link rel="stylesheet" href="/assets/css/app.css?v=cea88f98ad97">
+
+        <link
+    rel="stylesheet"
+    href="/vendor/leaflet/dist/leaflet.css?v=a78371028241"
+    >
+    
+    <title>
+        Peta Kerentanan | IKB Sumut    </title>
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-900 antialiased transition-colors dark:bg-slate-950 dark:text-slate-100">
+    <div class="flex min-h-screen flex-col">
+        
+<header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/90">
+    <div class="mx-auto flex max-w-7xl items-center gap-4 px-4 py-4 sm:px-6 lg:px-8">
+        <a
+            href="/"
+            class="flex min-w-0 items-center gap-3"
+            aria-label="IKB Sumut"
+        >
+            <span class="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-lg font-black text-white shadow-lg shadow-blue-600/20">
+                IK
+            </span>
+
+            <span class="hidden min-w-0 sm:block">
+                <span class="block truncate font-bold tracking-tight">
+                    IKB Sumut                </span>
+
+                <span class="block truncate text-xs text-slate-500 dark:text-slate-400">
+                    Data 2025                </span>
+            </span>
+        </a>
+
+        <nav
+            class="ml-auto flex items-center gap-1 overflow-x-auto rounded-2xl border border-slate-200 bg-slate-100 p-1 dark:border-slate-800 dark:bg-slate-900"
+            aria-label="Navigasi utama"
+        >
+                            
+                <a
+                    href="/"
+                    class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition bg-white text-blue-700 shadow-sm dark:bg-slate-800 dark:text-blue-400"
+                    aria-current="page"                >
+                    Peta                </a>
+                            
+                <a
+                    href="/data/"
+                    class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition text-slate-600 hover:bg-white/70 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/70 dark:hover:text-white"
+                                    >
+                    Data                </a>
+                            
+                <a
+                    href="/methodology/"
+                    class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition text-slate-600 hover:bg-white/70 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/70 dark:hover:text-white"
+                                    >
+                    Metodologi                </a>
+                            
+                <a
+                    href="/about/"
+                    class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition text-slate-600 hover:bg-white/70 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/70 dark:hover:text-white"
+                                    >
+                    Tentang                </a>
+                    </nav>
+
+        <button
+            type="button"
+            data-theme-toggle
+            class="hidden shrink-0 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-blue-300 hover:text-blue-700 sm:block dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-blue-500 dark:hover:text-blue-400"
+        >
+            Ubah tema
+        </button>
+    </div>
+</header>
+
+        <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
+            
+<section aria-labelledby="page-heading">
+    <div class="mb-8">
+        <p class="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">
+            Eksplorasi Wilayah
+        </p>
+
+        <h1
+            id="page-heading"
+            class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl"
+        >
+            Peta Kerentanan
+        </h1>
+
+        <p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
+            Jelajahi kerentanan kabupaten dan kota di Sumatera Utara
+            berdasarkan aspek atau indikator yang dipilih.
+        </p>
+    </div>
+
+            
+        <div class="grid items-start gap-6 lg:grid-cols-3">
+            <aside class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+                <h2 class="text-lg font-bold">Pengaturan Tampilan</h2>
+
+                <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                    18 pilihan layer dari
+                    data master.                </p>
+
+                <form
+                    action="/"
+                    method="get"
+                    class="mt-6 space-y-4"
+                    data-static-filter-form                >
+                    
+                    <div>
+                        <label
+                            for="layer"
+                            class="mb-2 block text-sm font-semibold"
+                        >
+                            Layer kerentanan
+                        </label>
+
+                        <select
+                            id="layer"
+                            name="layer"
+                            aria-describedby="layer-help"
+                            class="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm text-slate-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
+                        >
+                                                            <optgroup label="Keseluruhan">
+                                                                            
+                                        <option
+                                            value="overall"
+                                                                                            data-static-url="/map/overall/"
+                                                                                        selected                                        >
+                                            Kerentanan Keseluruhan                                        </option>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </optgroup>
+                                                            <optgroup label="Per Aspek">
+                                                                                                                    
+                                        <option
+                                            value="aspekon_environmental"
+                                                                                            data-static-url="/map/aspekon_environmental/"
+                                                                                                                                >
+                                            Kerentanan Lingkungan                                        </option>
+                                                                            
+                                        <option
+                                            value="aspekon_economic"
+                                                                                            data-static-url="/map/aspekon_economic/"
+                                                                                                                                >
+                                            Kerentanan Ekonomi                                        </option>
+                                                                            
+                                        <option
+                                            value="aspekon_physical"
+                                                                                            data-static-url="/map/aspekon_physical/"
+                                                                                                                                >
+                                            Kerentanan Fisik                                        </option>
+                                                                            
+                                        <option
+                                            value="aspekon_social"
+                                                                                            data-static-url="/map/aspekon_social/"
+                                                                                                                                >
+                                            Kerentanan Sosial                                        </option>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </optgroup>
+                                                            <optgroup label="Per Indikator">
+                                                                                                                                                                                                                                                                                    
+                                        <option
+                                            value="variable_fdi"
+                                                                                            data-static-url="/map/variable_fdi/"
+                                                                                                                                >
+                                            FDI                                        </option>
+                                                                            
+                                        <option
+                                            value="variable_mdi"
+                                                                                            data-static-url="/map/variable_mdi/"
+                                                                                                                                >
+                                            MDI                                        </option>
+                                                                            
+                                        <option
+                                            value="variable_wfi"
+                                                                                            data-static-url="/map/variable_wfi/"
+                                                                                                                                >
+                                            WFI                                        </option>
+                                                                            
+                                        <option
+                                            value="variable_ntl"
+                                                                                            data-static-url="/map/variable_ntl/"
+                                                                                                                                >
+                                            NTL                                        </option>
+                                                                            
+                                        <option
+                                            value="variable_agricultural_area"
+                                                                                            data-static-url="/map/variable_agricultural_area/"
+                                                                                                                                >
+                                            Luas Pertanian                                        </option>
+                                                                            
+                                        <option
+                                            value="variable_bui"
+                                                                                            data-static-url="/map/variable_bui/"
+                                                                                                                                >
+                                            BUI                                        </option>
+                                                                            
+                                        <option
+                                            value="variable_public_facility_poi"
+                                                                                            data-static-url="/map/variable_public_facility_poi/"
+                                                                                                                                >
+                                            POI Fasilitas Umum                                        </option>
+                                                                            
+                                        <option
+                                            value="variable_critical_facility_poi"
+                                                                                            data-static-url="/map/variable_critical_facility_poi/"
+                                                                                                                                >
+                                            POI Fasilitas Kritis                                        </option>
+                                                                            
+                                        <option
+                                            value="variable_population_density"
+                                                                                            data-static-url="/map/variable_population_density/"
+                                                                                                                                >
+                                            Kepadatan Penduduk                                        </option>
+                                                                            
+                                        <option
+                                            value="variable_sex_ratio"
+                                                                                            data-static-url="/map/variable_sex_ratio/"
+                                                                                                                                >
+                                            Rasio Jenis Kelamin                                        </option>
+                                                                            
+                                        <option
+                                            value="variable_vulnerable_age_ratio"
+                                                                                            data-static-url="/map/variable_vulnerable_age_ratio/"
+                                                                                                                                >
+                                            Rasio Kelompok Umur Rentan                                        </option>
+                                                                            
+                                        <option
+                                            value="variable_disability_ratio"
+                                                                                            data-static-url="/map/variable_disability_ratio/"
+                                                                                                                                >
+                                            Rasio Disabilitas                                        </option>
+                                                                            
+                                        <option
+                                            value="variable_poverty_ratio"
+                                                                                            data-static-url="/map/variable_poverty_ratio/"
+                                                                                                                                >
+                                            Rasio Penduduk Miskin                                        </option>
+                                                                    </optgroup>
+                                                    </select>
+
+                        <p
+                            id="layer-help"
+                            class="mt-2 text-xs leading-5 text-slate-500 dark:text-slate-400"
+                        >
+                            Pilih layer, kemudian tekan Terapkan.
+                        </p>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="w-full rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                    >
+                        Terapkan
+                    </button>
+                </form>
+
+                <div class="mt-6 border-t border-slate-200 pt-5 dark:border-slate-800">
+                    <h3 class="text-sm font-semibold">Ketersediaan data</h3>
+
+                    <dl class="mt-3 grid grid-cols-2 gap-3 text-sm">
+                        <div class="rounded-xl bg-slate-50 p-3 dark:bg-slate-950">
+                            <dt class="text-slate-500 dark:text-slate-400">
+                                Wilayah
+                            </dt>
+                            <dd class="mt-1 font-bold">
+                                33                            </dd>
+                        </div>
+
+                        <div class="rounded-xl bg-slate-50 p-3 dark:bg-slate-950">
+                            <dt class="text-slate-500 dark:text-slate-400">
+                                Status terisi
+                            </dt>
+                            <dd class="mt-1 font-bold">
+                                33                            </dd>
+                        </div>
+                    </dl>
+
+                                    </div>
+            </aside>
+
+            <section
+                aria-labelledby="selected-layer-heading"
+                class="min-w-0 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-2 dark:border-slate-800 dark:bg-slate-900"
+            >
+                <p class="text-sm text-slate-500 dark:text-slate-400">
+                    Layer terpilih
+                </p>
+
+                <h2
+                    id="selected-layer-heading"
+                    class="mt-1 text-2xl font-bold"
+                >
+                    Kerentanan Keseluruhan                </h2>
+
+                                    <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                        IKBS Sumatera Utara 2025                    </p>
+                
+                <div class="relative mt-6 overflow-hidden rounded-2xl border border-slate-300 dark:border-slate-700">
+                    <div
+                        id="ikbs-map"
+                        role="region"
+                        aria-label="Peta Sumatera Utara untuk layer Kerentanan Keseluruhan"
+                        data-tile-url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        data-attribution="&amp;copy; &lt;a href=&quot;https://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; contributors"
+                        data-layer-code="overall"
+                        class="h-[560px] w-full bg-slate-100 dark:bg-slate-950"
+                    ></div>
+
+                    <p
+                        id="map-status"
+                        role="status"
+                        class="pointer-events-none absolute left-1/2 top-1/2 z-[500] -translate-x-1/2 -translate-y-1/2 rounded-xl bg-white/95 px-4 py-3 text-center text-sm font-semibold text-slate-700 shadow-lg dark:bg-slate-900/95 dark:text-slate-200"
+                    >
+                        Memuat peta dan batas wilayah...
+                    </p>
+
+                    <script
+                        id="ikbs-map-config"
+                        type="application/json"
+                    >{"geojsonUrl":"/data/sumut-kabkota.geojson","dataset":{"code":"ikbs-sumut-2025","name":"IKBS Sumatera Utara 2025","data_year":2025},"layer":{"code":"overall","name":"Kerentanan Keseluruhan","type":"overall","classification":{"title":"Kategori Excel","method":"source_excel","source":"HASIL_IKB_FINAL2.xlsx","classes":[{"code":"low","count":11,"label":"Rendah"},{"code":"medium","count":12,"label":"Sedang"},{"code":"high","count":10,"label":"Tinggi"}],"class_count":3,"source_sheet":"13_IKB_Final","display_scale":"0-100","source_sha256":"1dd7cd1fd0e62485be2ed9fae1a2157f785d3fd2e2bb6d8eebb047852c2cc64e","observation_count":33,"source_raw_column":"IKB","source_raw_values":{"12.01":"0.4231810906025674","12.02":"0.3984568997287989","12.03":"0.3904794515066783","12.04":"0.4631088999831321","12.05":"0.4394230395997942","12.06":"0.4506620693506859","12.07":"0.5160852365728177","12.08":"0.4273443008287272","12.09":"0.4062389429862935","12.10":"0.3713383749263536","12.11":"0.3718837632209246","12.12":"0.3905193048016696","12.13":"0.3944912321467687","12.14":"0.3979682129272869","12.15":"0.3372983868040351","12.16":"0.3734876693038751","12.17":"0.3450434687125295","12.18":"0.4799957504809422","12.19":"0.496547138252119","12.20":"0.2920599429901006","12.21":"0.3572739385736088","12.22":"0.3196291116810606","12.23":"0.3491482234021468","12.24":"0.4277650812512038","12.25":"0.4794987821293574","12.71":"0.5752050575435309","12.72":"0.4883455246319617","12.73":"0.6647879414264229","12.74":"0.605394711013705","12.75":"0.484165329031538","12.76":"0.469150507779332","12.77":"0.430782468399381","12.78":"0.57162983036944"},"source_thresholds":{"mean":"0.4360118085745087","sheet":"Batas_Kelas","low_medium":"0.3938073025641989","medium_high":"0.4782163145848186","source_index":"IKB","standard_deviation":"0.08440901202061965"},"source_value_column":"IKB_100"},"variable":null},"regions":[{"code":"12.09","name":"Asahan","administrative_type":"kabupaten","area_km2":"3738.42047423000000000000","level_code":"medium","level_label":"Sedang","note":null,"value":"40.62389429862935000000","source_rank":19},{"code":"12.19","name":"Batu Bara","administrative_type":"kabupaten","area_km2":"888.67570486499990000000","level_code":"high","level_label":"Tinggi","note":null,"value":"49.65471382521190000000","source_rank":6},{"code":"12.11","name":"Dairi","administrative_type":"kabupaten","area_km2":"2083.60429633000000000000","level_code":"low","level_label":"Rendah","note":null,"value":"37.18837632209246000000","source_rank":26},{"code":"12.07","name":"Deli Serdang","administrative_type":"kabupaten","area_km2":"2581.48150536000000000000","level_code":"high","level_label":"Tinggi","note":null,"value":"51.60852365728176000000","source_rank":5},{"code":"12.16","name":"Humbang Hasundutan","administrative_type":"kabupaten","area_km2":"2351.51422383000000000000","level_code":"low","level_label":"Rendah","note":null,"value":"37.34876693038751000000","source_rank":25},{"code":"12.06","name":"Karo","administrative_type":"kabupaten","area_km2":"2206.87626556000000000000","level_code":"medium","level_label":"Sedang","note":null,"value":"45.06620693506859000000","source_rank":13},{"code":"12.75","name":"Kota Binjai","administrative_type":"kota","area_km2":"93.77007476650000000000","level_code":"high","level_label":"Tinggi","note":null,"value":"48.41653290315379000000","source_rank":8},{"code":"12.78","name":"Kota Gunungsitoli","administrative_type":"kota","area_km2":"208.74195675900000000000","level_code":"high","level_label":"Tinggi","note":null,"value":"57.16298303694401000000","source_rank":4},{"code":"12.71","name":"Kota Medan","administrative_type":"kota","area_km2":"279.23862662800000000000","level_code":"high","level_label":"Tinggi","note":null,"value":"57.52050575435309000000","source_rank":3},{"code":"12.77","name":"Kota Padangsidimpuan","administrative_type":"kota","area_km2":"159.29837492500000000000","level_code":"medium","level_label":"Sedang","note":null,"value":"43.07824683993810000000","source_rank":15},{"code":"12.72","name":"Kota Pematangsiantar","administrative_type":"kota","area_km2":"75.91856000700000000000","level_code":"high","level_label":"Tinggi","note":null,"value":"48.83455246319617000000","source_rank":7},{"code":"12.73","name":"Kota Sibolga","administrative_type":"kota","area_km2":"12.64513655570000000000","level_code":"high","level_label":"Tinggi","note":null,"value":"66.47879414264230000000","source_rank":1},{"code":"12.74","name":"Kota Tanjungbalai","administrative_type":"kota","area_km2":"60.07206224750000000000","level_code":"high","level_label":"Tinggi","note":null,"value":"60.53947110137050000000","source_rank":2},{"code":"12.76","name":"Kota Tebing Tinggi","administrative_type":"kota","area_km2":"39.16968579160000000000","level_code":"medium","level_label":"Sedang","note":null,"value":"46.91505077793320000000","source_rank":11},{"code":"12.10","name":"Labuhanbatu","administrative_type":"kabupaten","area_km2":"2772.34580213000000000000","level_code":"low","level_label":"Rendah","note":null,"value":"37.13383749263536000000","source_rank":27},{"code":"12.22","name":"Labuhanbatu Selatan","administrative_type":"kabupaten","area_km2":"3079.61005712000000000000","level_code":"low","level_label":"Rendah","note":null,"value":"31.96291116810606000000","source_rank":32},{"code":"12.23","name":"Labuhanbatu Utara","administrative_type":"kabupaten","area_km2":"3687.17869575000000000000","level_code":"low","level_label":"Rendah","note":null,"value":"34.91482234021468000000","source_rank":29},{"code":"12.05","name":"Langkat","administrative_type":"kabupaten","area_km2":"6142.07198145000000000000","level_code":"medium","level_label":"Sedang","note":null,"value":"43.94230395997943000000","source_rank":14},{"code":"12.13","name":"Mandailing Natal","administrative_type":"kabupaten","area_km2":"6546.56660359000000000000","level_code":"medium","level_label":"Sedang","note":null,"value":"39.44912321467687000000","source_rank":22},{"code":"12.04","name":"Nias","administrative_type":"kabupaten","area_km2":"902.59911774700000000000","level_code":"medium","level_label":"Sedang","note":null,"value":"46.31088999831321000000","source_rank":12},{"code":"12.25","name":"Nias Barat","administrative_type":"kabupaten","area_km2":"464.64998326700000000000","level_code":"high","level_label":"Tinggi","note":null,"value":"47.94987821293574000000","source_rank":10},{"code":"12.14","name":"Nias Selatan","administrative_type":"kabupaten","area_km2":"2531.59027204000000000000","level_code":"medium","level_label":"Sedang","note":null,"value":"39.79682129272869000000","source_rank":21},{"code":"12.24","name":"Nias Utara","administrative_type":"kabupaten","area_km2":"1239.50221610000000000000","level_code":"medium","level_label":"Sedang","note":null,"value":"42.77650812512038000000","source_rank":16},{"code":"12.21","name":"Padang Lawas","administrative_type":"kabupaten","area_km2":"3914.41335426000000000000","level_code":"low","level_label":"Rendah","note":null,"value":"35.72739385736088000000","source_rank":28},{"code":"12.20","name":"Padang Lawas Utara","administrative_type":"kabupaten","area_km2":"3945.55719958000000000000","level_code":"low","level_label":"Rendah","note":null,"value":"29.20599429901006000000","source_rank":33},{"code":"12.15","name":"Pakpak Bharat","administrative_type":"kabupaten","area_km2":"1365.60735556000000000000","level_code":"low","level_label":"Rendah","note":null,"value":"33.72983868040351000000","source_rank":31},{"code":"12.17","name":"Samosir","administrative_type":"kabupaten","area_km2":"1850.03506486000000000000","level_code":"low","level_label":"Rendah","note":null,"value":"34.50434687125295000000","source_rank":30},{"code":"12.18","name":"Serdang Bedagai","administrative_type":"kabupaten","area_km2":"1949.97807755000000000000","level_code":"high","level_label":"Tinggi","note":null,"value":"47.99957504809422000000","source_rank":9},{"code":"12.08","name":"Simalungun","administrative_type":"kabupaten","area_km2":"4601.47730054000000000000","level_code":"medium","level_label":"Sedang","note":null,"value":"42.73443008287272000000","source_rank":17},{"code":"12.03","name":"Tapanuli Selatan","administrative_type":"kabupaten","area_km2":"4201.35393565000000000000","level_code":"low","level_label":"Rendah","note":null,"value":"39.04794515066784000000","source_rank":24},{"code":"12.01","name":"Tapanuli Tengah","administrative_type":"kabupaten","area_km2":"2307.71565040000000000000","level_code":"medium","level_label":"Sedang","note":null,"value":"42.31810906025674000000","source_rank":18},{"code":"12.02","name":"Tapanuli Utara","administrative_type":"kabupaten","area_km2":"3895.60421748000000000000","level_code":"medium","level_label":"Sedang","note":null,"value":"39.84568997287990000000","source_rank":20},{"code":"12.12","name":"Toba","administrative_type":"kabupaten","area_km2":"2291.61605650000000000000","level_code":"low","level_label":"Rendah","note":null,"value":"39.05193048016696000000","source_rank":23}]}</script>
+                </div>
+
+                <div class="mt-4 flex flex-col gap-2 text-sm text-slate-500 sm:flex-row sm:items-start sm:justify-between dark:text-slate-400">
+                    <p class="max-w-2xl leading-6">
+                        Basemap: OpenStreetMap. Batas kabupaten/kota:
+                        <a
+                            href="https://kspservices.big.go.id/satupeta/rest/services/PUBLIK/BATAS_WILAYAH/MapServer/2"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="font-semibold text-blue-600 hover:underline dark:text-blue-400"
+                        >
+                            Badan Informasi Geospasial (BIG)                        </a>, edisi 2022, revisi Desember 2022.
+                        Geometri telah digeneralisasi untuk visualisasi web.
+                    </p>
+
+                    <a
+                        href="https://www.openstreetmap.org/fixthemap"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="shrink-0 font-semibold text-blue-600 hover:underline dark:text-blue-400"
+                    >
+                        Laporkan masalah peta dasar
+                    </a>
+                </div>
+            </section>
+        </div>
+    </section>
+        </main>
+
+        
+<footer class="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
+    <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8 dark:text-slate-400">
+        <p>
+            &copy; 2026 IKB Sumut        </p>
+
+    </div>
+</footer>
+    </div>
+
+    <script src="/assets/js/app.js?v=b5d2647696c3"></script>
+
+        <script src="/vendor/leaflet/dist/leaflet.js?v=85d455b45224"></script>
+    <script src="/assets/js/map.js?v=ff81a2476b3b"></script>
+
+</body>
+</html>

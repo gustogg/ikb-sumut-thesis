@@ -1,0 +1,18 @@
+{
+  "title": "Batas Wilayah Kabupaten/Kota Sumatera Utara",
+  "publisher": "Badan Informasi Geospasial (BIG)",
+  "service_url": "https://kspservices.big.go.id/satupeta/rest/services/PUBLIK/BATAS_WILAYAH/MapServer/2",
+  "source_edition": "2022, revisi Desember 2022",
+  "accessed_at": "2026-10-04",
+  "coordinate_reference_system": "EPSG:4326",
+  "feature_count": 33,
+  "join_property": "kdpkab",
+  "name_property": "wadmkk",
+  "administrative_type_property": "tipadm",
+  "web_optimization": {
+    "max_allowable_offset": 0.0001,
+    "geometry_precision": 5
+  },
+  "sha256": "783fde674688b1e85ec3cae5a65392e42258370d7208b108c3dea558c0ab0166",
+  "usage_note": "Geometri telah digeneralisasi untuk visualisasi web kabupaten/kota."
+}

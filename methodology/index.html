@@ -1,0 +1,467 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Visualisasi kerentanan wilayah kabupaten dan kota di Sumatera Utara."
+    >
+
+        <meta name="robots" content="noindex, nofollow, noarchive">
+    
+    <script>
+        const savedTheme = localStorage.getItem('ikbs-theme');
+        const prefersDark = window.matchMedia(
+            '(prefers-color-scheme: dark)'
+        ).matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+    <link
+    rel="icon"
+    type="image/x-icon"
+    href="/assets/images/favicon.ico?v=1"
+    >
+
+    <link rel="stylesheet" href="/assets/css/app.css?v=cea88f98ad97">
+
+    
+    <title>
+        Metodologi | IKB Sumut    </title>
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-900 antialiased transition-colors dark:bg-slate-950 dark:text-slate-100">
+    <div class="flex min-h-screen flex-col">
+        
+<header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/90">
+    <div class="mx-auto flex max-w-7xl items-center gap-4 px-4 py-4 sm:px-6 lg:px-8">
+        <a
+            href="/"
+            class="flex min-w-0 items-center gap-3"
+            aria-label="IKB Sumut"
+        >
+            <span class="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-lg font-black text-white shadow-lg shadow-blue-600/20">
+                IK
+            </span>
+
+            <span class="hidden min-w-0 sm:block">
+                <span class="block truncate font-bold tracking-tight">
+                    IKB Sumut                </span>
+
+                <span class="block truncate text-xs text-slate-500 dark:text-slate-400">
+                    Data 2025                </span>
+            </span>
+        </a>
+
+        <nav
+            class="ml-auto flex items-center gap-1 overflow-x-auto rounded-2xl border border-slate-200 bg-slate-100 p-1 dark:border-slate-800 dark:bg-slate-900"
+            aria-label="Navigasi utama"
+        >
+                            
+                <a
+                    href="/"
+                    class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition text-slate-600 hover:bg-white/70 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/70 dark:hover:text-white"
+                                    >
+                    Peta                </a>
+                            
+                <a
+                    href="/data/"
+                    class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition text-slate-600 hover:bg-white/70 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/70 dark:hover:text-white"
+                                    >
+                    Data                </a>
+                            
+                <a
+                    href="/methodology/"
+                    class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition bg-white text-blue-700 shadow-sm dark:bg-slate-800 dark:text-blue-400"
+                    aria-current="page"                >
+                    Metodologi                </a>
+                            
+                <a
+                    href="/about/"
+                    class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition text-slate-600 hover:bg-white/70 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/70 dark:hover:text-white"
+                                    >
+                    Tentang                </a>
+                    </nav>
+
+        <button
+            type="button"
+            data-theme-toggle
+            class="hidden shrink-0 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-blue-300 hover:text-blue-700 sm:block dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-blue-500 dark:hover:text-blue-400"
+        >
+            Ubah tema
+        </button>
+    </div>
+</header>
+
+        <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
+            
+<section aria-labelledby="methodology-heading">
+    <div class="mb-8">
+        <p class="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">
+            Data dan Klasifikasi
+        </p>
+
+        <h1
+            id="methodology-heading"
+            class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl"
+        >
+            Metodologi
+        </h1>
+
+        <p class="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-slate-400">
+            Sumber nilai penelitian dan metode pengelompokan kategori
+            pada peta kerentanan Sumatera Utara.
+        </p>
+    </div>
+
+            <div class="grid gap-4 sm:grid-cols-3">
+            <article class="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+                <p class="text-sm text-slate-500 dark:text-slate-400">
+                    Aspek
+                </p>
+                <p class="mt-2 text-3xl font-bold">
+                    4                </p>
+            </article>
+
+            <article class="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+                <p class="text-sm text-slate-500 dark:text-slate-400">
+                    Indikator
+                </p>
+                <p class="mt-2 text-3xl font-bold">
+                    13                </p>
+            </article>
+
+            <article class="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+                <p class="text-sm text-slate-500 dark:text-slate-400">
+                    Layer peta
+                </p>
+                <p class="mt-2 text-3xl font-bold">
+                    18                </p>
+            </article>
+        </div>
+
+        <div class="mt-6 rounded-2xl border border-blue-200 bg-blue-50 p-6 dark:border-blue-900 dark:bg-blue-950">
+            <h2 class="font-bold text-blue-900 dark:text-blue-100">
+                Sumber Data Penelitian
+            </h2>
+
+            <p class="mt-2 leading-7 text-blue-800 dark:text-blue-200">
+                Official Statistics, Penginderaan Jauh, Point of Interest (POI).
+            </p>
+        </div>
+
+        <section class="mt-10" aria-labelledby="flow-heading">
+            <h2 id="flow-heading" class="text-2xl font-bold">
+                Alur Penyajian Data
+            </h2>
+
+            <div class="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                
+                                    <article class="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+                        <span class="text-sm font-bold text-blue-600 dark:text-blue-400">
+                            01                        </span>
+
+                        <h3 class="mt-3 font-bold">
+                            Data sumber                        </h3>
+
+                        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                            Nilai indikator dan hasil indeks dibaca dari Excel penelitian.                        </p>
+                    </article>
+                                    <article class="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+                        <span class="text-sm font-bold text-blue-600 dark:text-blue-400">
+                            02                        </span>
+
+                        <h3 class="mt-3 font-bold">
+                            Pemeriksaan                        </h3>
+
+                        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                            Cakupan 33 kabupaten/kota dan kelengkapan setiap indikator diperiksa.                        </p>
+                    </article>
+                                    <article class="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+                        <span class="text-sm font-bold text-blue-600 dark:text-blue-400">
+                            03                        </span>
+
+                        <h3 class="mt-3 font-bold">
+                            Klasifikasi                        </h3>
+
+                        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                            Indikator menggunakan Jenks lima kelas. Kategori aspek dan keseluruhan mengikuti Excel.                        </p>
+                    </article>
+                                    <article class="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+                        <span class="text-sm font-bold text-blue-600 dark:text-blue-400">
+                            04                        </span>
+
+                        <h3 class="mt-3 font-bold">
+                            Penyajian web                        </h3>
+
+                        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                            Peta, tabel, dan detail wilayah menampilkan nilai serta kategori yang telah disiapkan.                        </p>
+                    </article>
+                            </div>
+        </section>
+
+        <section class="mt-10" aria-labelledby="structure-heading">
+            <h2 id="structure-heading" class="text-2xl font-bold">
+                Struktur Aspek dan Indikator
+            </h2>
+
+            <div class="mt-5 grid gap-5 lg:grid-cols-2">
+                                    <article class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
+                        <div class="flex items-center justify-between gap-4">
+                            <h3 class="text-lg font-bold">
+                                Kerentanan Lingkungan                            </h3>
+
+                            <span class="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700 dark:bg-blue-950 dark:text-blue-300">
+                                3                                indikator
+                            </span>
+                        </div>
+
+                        <ul class="mt-5 space-y-3">
+                                                            <li class="flex items-center gap-3 text-sm">
+                                    <span
+                                        class="size-2 shrink-0 rounded-full bg-blue-500"
+                                        aria-hidden="true"
+                                    ></span>
+
+                                    FDI                                </li>
+                                                            <li class="flex items-center gap-3 text-sm">
+                                    <span
+                                        class="size-2 shrink-0 rounded-full bg-blue-500"
+                                        aria-hidden="true"
+                                    ></span>
+
+                                    MDI                                </li>
+                                                            <li class="flex items-center gap-3 text-sm">
+                                    <span
+                                        class="size-2 shrink-0 rounded-full bg-blue-500"
+                                        aria-hidden="true"
+                                    ></span>
+
+                                    WFI                                </li>
+                                                    </ul>
+                    </article>
+                                    <article class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
+                        <div class="flex items-center justify-between gap-4">
+                            <h3 class="text-lg font-bold">
+                                Kerentanan Ekonomi                            </h3>
+
+                            <span class="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700 dark:bg-blue-950 dark:text-blue-300">
+                                2                                indikator
+                            </span>
+                        </div>
+
+                        <ul class="mt-5 space-y-3">
+                                                            <li class="flex items-center gap-3 text-sm">
+                                    <span
+                                        class="size-2 shrink-0 rounded-full bg-blue-500"
+                                        aria-hidden="true"
+                                    ></span>
+
+                                    NTL                                </li>
+                                                            <li class="flex items-center gap-3 text-sm">
+                                    <span
+                                        class="size-2 shrink-0 rounded-full bg-blue-500"
+                                        aria-hidden="true"
+                                    ></span>
+
+                                    Luas Pertanian                                </li>
+                                                    </ul>
+                    </article>
+                                    <article class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
+                        <div class="flex items-center justify-between gap-4">
+                            <h3 class="text-lg font-bold">
+                                Kerentanan Fisik                            </h3>
+
+                            <span class="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700 dark:bg-blue-950 dark:text-blue-300">
+                                3                                indikator
+                            </span>
+                        </div>
+
+                        <ul class="mt-5 space-y-3">
+                                                            <li class="flex items-center gap-3 text-sm">
+                                    <span
+                                        class="size-2 shrink-0 rounded-full bg-blue-500"
+                                        aria-hidden="true"
+                                    ></span>
+
+                                    BUI                                </li>
+                                                            <li class="flex items-center gap-3 text-sm">
+                                    <span
+                                        class="size-2 shrink-0 rounded-full bg-blue-500"
+                                        aria-hidden="true"
+                                    ></span>
+
+                                    POI Fasilitas Umum                                </li>
+                                                            <li class="flex items-center gap-3 text-sm">
+                                    <span
+                                        class="size-2 shrink-0 rounded-full bg-blue-500"
+                                        aria-hidden="true"
+                                    ></span>
+
+                                    POI Fasilitas Kritis                                </li>
+                                                    </ul>
+                    </article>
+                                    <article class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
+                        <div class="flex items-center justify-between gap-4">
+                            <h3 class="text-lg font-bold">
+                                Kerentanan Sosial                            </h3>
+
+                            <span class="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700 dark:bg-blue-950 dark:text-blue-300">
+                                5                                indikator
+                            </span>
+                        </div>
+
+                        <ul class="mt-5 space-y-3">
+                                                            <li class="flex items-center gap-3 text-sm">
+                                    <span
+                                        class="size-2 shrink-0 rounded-full bg-blue-500"
+                                        aria-hidden="true"
+                                    ></span>
+
+                                    Kepadatan Penduduk                                </li>
+                                                            <li class="flex items-center gap-3 text-sm">
+                                    <span
+                                        class="size-2 shrink-0 rounded-full bg-blue-500"
+                                        aria-hidden="true"
+                                    ></span>
+
+                                    Rasio Jenis Kelamin                                </li>
+                                                            <li class="flex items-center gap-3 text-sm">
+                                    <span
+                                        class="size-2 shrink-0 rounded-full bg-blue-500"
+                                        aria-hidden="true"
+                                    ></span>
+
+                                    Rasio Kelompok Umur Rentan                                </li>
+                                                            <li class="flex items-center gap-3 text-sm">
+                                    <span
+                                        class="size-2 shrink-0 rounded-full bg-blue-500"
+                                        aria-hidden="true"
+                                    ></span>
+
+                                    Rasio Disabilitas                                </li>
+                                                            <li class="flex items-center gap-3 text-sm">
+                                    <span
+                                        class="size-2 shrink-0 rounded-full bg-blue-500"
+                                        aria-hidden="true"
+                                    ></span>
+
+                                    Rasio Penduduk Miskin                                </li>
+                                                    </ul>
+                    </article>
+                            </div>
+        </section>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-2">
+            <section
+                aria-labelledby="status-heading"
+                class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900"
+            >
+                <h2 id="status-heading" class="text-xl font-bold">
+                    Kategori Indikator
+                </h2>
+
+                <p class="mt-3 leading-7 text-slate-600 dark:text-slate-400">
+                    Natural Breaks (Jenks) membagi 33 nilai pada masing-masing
+                    indikator menjadi lima kelompok. Nilai yang serupa berada
+                    dalam kelompok yang sama. Batas kelas mengikuti sebaran
+                    data setiap indikator, sehingga jumlah wilayah per kelas
+                    dapat berbeda.
+                </p>
+
+                <div class="mt-5 flex flex-wrap gap-2">
+                                            <span class="rounded-full border border-slate-200 px-3 py-2 text-sm font-semibold dark:border-slate-700">
+                            Sangat Rendah                        </span>
+                                            <span class="rounded-full border border-slate-200 px-3 py-2 text-sm font-semibold dark:border-slate-700">
+                            Rendah                        </span>
+                                            <span class="rounded-full border border-slate-200 px-3 py-2 text-sm font-semibold dark:border-slate-700">
+                            Sedang                        </span>
+                                            <span class="rounded-full border border-slate-200 px-3 py-2 text-sm font-semibold dark:border-slate-700">
+                            Tinggi                        </span>
+                                            <span class="rounded-full border border-slate-200 px-3 py-2 text-sm font-semibold dark:border-slate-700">
+                            Sangat Tinggi                        </span>
+                                    </div>
+                <p class="mt-4 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                    Kelas diurutkan dari nilai numerik terkecil ke terbesar.
+                    Pengelompokan ini mempertahankan nilai asli indikator.
+                    Batas setiap kelas tersedia pada legenda layer indikator.
+                </p>
+                <h3 class="mt-6 font-bold">Kategori Aspek dan Keseluruhan</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                    Kategori Rendah, Sedang, dan Tinggi mengikuti label yang
+                    tercantum pada Excel indeks. Indeks dan peringkat
+                    keseluruhan juga diambil langsung dari sumber yang sama.
+                </p>
+            </section>
+
+            <section
+                aria-labelledby="spatial-heading"
+                class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900"
+            >
+                <h2 id="spatial-heading" class="text-xl font-bold">
+                    Data Spasial
+                </h2>
+
+                <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                    <li>Basemap menggunakan OpenStreetMap.</li>
+                    <li>
+                        Batas wilayah menggunakan GeoJSON BIG edisi 2022,
+                        revisi Desember 2022 (diakses 4 Oktober 2026).
+                    </li>
+                    <li>Cakupan peta adalah 33 kabupaten/kota di Sumatera Utara.</li>
+                </ul>
+            </section>
+        </div>
+
+        <section
+            aria-labelledby="format-heading"
+            class="mt-6 rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900"
+        >
+            <h2 id="format-heading" class="text-xl font-bold">
+                Format Nilai
+            </h2>
+
+            <div class="mt-5 grid gap-4 md:grid-cols-2">
+                <ul class="space-y-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                    <li>FDI, MDI, WFI, NTL, dan BUI: maksimal 4 desimal.</li>
+                    <li>POI fasilitas umum dan kritis: rasio, maksimal 4 desimal.</li>
+                    <li>Luas pertanian: km².</li>
+                </ul>
+
+                <ul class="space-y-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                    <li>Rasio kelompok umur rentan: persen, 2 desimal.</li>
+                    <li>Indeks aspek: 4 desimal. Indeks keseluruhan: 2 desimal.</li>
+                    <li>Pembulatan berlaku pada tampilan; nilai sumber tetap disimpan utuh.</li>
+                    <li>Luas wilayah BIG adalah metadata wilayah, bukan luas pertanian atau indikator kerentanan tambahan.</li>
+                </ul>
+            </div>
+        </section>
+
+    </section>
+        </main>
+
+        
+<footer class="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
+    <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8 dark:text-slate-400">
+        <p>
+            &copy; 2026 IKB Sumut        </p>
+
+    </div>
+</footer>
+    </div>
+
+    <script src="/assets/js/app.js?v=b5d2647696c3"></script>
+
+    
+</body>
+</html>
