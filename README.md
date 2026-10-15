@@ -1,6 +1,6 @@
-# IKBS Sumatera Utara
+# IKB Sumatera Utara
 
-Website visualisasi **Indeks Kerentanan Bencana Sumatera Utara (IKBS)** untuk menjelajahi data indeks, kategori, peringkat, dan peta interaktif kabupaten/kota di Sumatera Utara.
+Website visualisasi **Indeks Kerentanan Bencana Sumatera Utara (IKB)** untuk menjelajahi data indeks, kategori, peringkat, dan peta interaktif kabupaten/kota di Sumatera Utara.
 
 ## Tentang aplikasi
 
