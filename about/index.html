@@ -15,7 +15,7 @@
     >
 
         <meta name="robots" content="noindex, nofollow, noarchive">
-    
+
     <script>
         const savedTheme = localStorage.getItem('ikbs-theme');
         const prefersDark = window.matchMedia(
@@ -35,14 +35,14 @@
 
     <link rel="stylesheet" href="/assets/css/app.css?v=cea88f98ad97">
 
-    
+
     <title>
         Tentang | IKB Sumut    </title>
 </head>
 
 <body class="min-h-screen bg-slate-50 text-slate-900 antialiased transition-colors dark:bg-slate-950 dark:text-slate-100">
     <div class="flex min-h-screen flex-col">
-        
+
 <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/90">
     <div class="mx-auto flex max-w-7xl items-center gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <a
@@ -67,25 +67,25 @@
             class="ml-auto flex items-center gap-1 overflow-x-auto rounded-2xl border border-slate-200 bg-slate-100 p-1 dark:border-slate-800 dark:bg-slate-900"
             aria-label="Navigasi utama"
         >
-                            
+
                 <a
                     href="/"
                     class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition text-slate-600 hover:bg-white/70 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/70 dark:hover:text-white"
                                     >
                     Peta                </a>
-                            
+
                 <a
                     href="/data/"
                     class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition text-slate-600 hover:bg-white/70 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/70 dark:hover:text-white"
                                     >
                     Data                </a>
-                            
+
                 <a
                     href="/methodology/"
                     class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition text-slate-600 hover:bg-white/70 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/70 dark:hover:text-white"
                                     >
                     Metodologi                </a>
-                            
+
                 <a
                     href="/about/"
                     class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition bg-white text-blue-700 shadow-sm dark:bg-slate-800 dark:text-blue-400"
@@ -104,7 +104,7 @@
 </header>
 
         <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
-            
+
 <section aria-labelledby="about-heading">
     <div class="grid items-start gap-6 lg:grid-cols-5">
         <div class="lg:col-span-3">
@@ -162,42 +162,65 @@
                             Program studi                        </dt>
 
                         <dd class="mt-1 font-semibold">
-                            Komputasi Digital                        </dd>
+                            Komputasi Statistik                        </dd>
                     </div>
                             </dl>
         </aside>
     </div>
 
-    <section
-        aria-labelledby="purpose-heading"
-        class="mt-10 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 dark:border-slate-800 dark:bg-slate-900"
-    >
-        <h2 id="purpose-heading" class="text-2xl font-bold">
-            Tujuan dan Cakupan
-        </h2>
+    <!-- Section 1: Tujuan Penelitian -->
+<section
+    aria-labelledby="purpose-heading"
+    class="mt-10 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 dark:border-slate-800 dark:bg-slate-900"
+>
+    <h2 id="purpose-heading" class="text-2xl font-bold">
+        Tujuan Penelitian
+    </h2>
 
-        <div class="mt-5 grid gap-6 md:grid-cols-2">
-            <div>
-                <h3 class="font-semibold">Memudahkan eksplorasi data</h3>
-
-                <p class="mt-2 leading-7 text-slate-600 dark:text-slate-400">
-                    Website menyediakan tampilan peta dan tabel untuk
-                    menelusuri data kerentanan lingkungan, ekonomi,
-                    fisik, dan sosial.
-                </p>
-            </div>
-
-            <div>
-                <h3 class="font-semibold">Cakupan Sumatera Utara</h3>
-
-                <p class="mt-2 leading-7 text-slate-600 dark:text-slate-400">
-                    Penyajian direncanakan mencakup 33 kabupaten/kota.
-                    Data wilayah dan indikator dilengkapi secara bertahap
-                    sesuai hasil penelitian.
-                </p>
-            </div>
+    <div class="mt-5 grid gap-6 md:grid-cols-2">
+        <div>
+            <h3 class="font-semibold text-slate-800 dark:text-slate-200">Analisis Kerentanan Banjir</h3>
+            <p class="mt-2 leading-7 text-slate-600 dark:text-slate-400">
+                Menganalisis persebaran indikator kerentanan banjir pada aspek sosial, fisik,
+                ekonomi, dan lingkungan dengan memanfaatkan <i>official statistics</i>,
+                penginderaan jauh, dan POI pada tingkat kabupaten/kota di Provinsi Sumatera
+                Utara tahun 2025.
+            </p>
         </div>
-    </section>
+        <div>
+            <h3 class="font-semibold text-slate-800 dark:text-slate-200">Pengembangan Indeks Kerentanan</h3>
+            <p class="mt-2 leading-7 text-slate-600 dark:text-slate-400">
+                Membangun Indeks Kerentanan Banjir berdasarkan aspek sosial, fisik,
+                ekonomi, dan lingkungan dengan memanfaatkan <i>official statistics</i>,
+                penginderaan jauh, dan POI pada tingkat kabupaten/kota di Provinsi Sumatera
+                Utara tahun 2025.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Section 2: Ruang Lingkup dan Batasan -->
+<section
+    aria-labelledby="scope-heading"
+    class="mt-6 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 dark:border-slate-800 dark:bg-slate-900"
+>
+    <h2 id="purpose-heading" class="text-2xl font-bold">
+        Ruang Lingkup dan Batasan
+    </h2>
+
+    <div class="mt-5">
+        <ul class="space-y-3 leading-7 text-slate-800 dark:text-slate-200 list-disc pl-5">
+            <li class="text-slate-800 dark:text-slate-200"><strong>Cakupan Wilayah:</strong> Mencakup 33 kabupaten/kota di Provinsi Sumatera Utara sebagai unit analisis.</li>
+            <li class="text-slate-800 dark:text-slate-200"><strong>Fokus Kajian:</strong> Khusus mengkaji komponen kerentanan banjir (sosial, fisik, ekonomi, lingkungan) dan tidak mencakup pemodelan bahaya, kapasitas, prediksi kejadian, maupun risiko bencana secara keseluruhan.</li>
+            <li class="text-slate-800 dark:text-slate-200"><strong>Indikator &amp; Sumber Data:</strong> Menggunakan 13 indikator berbasis <i>official statistics</i>, penginderaan jauh, dan POI rujukan tahun 2025.</li>
+            <li class="text-slate-800 dark:text-slate-200"><strong>Batasan Data Spasial:</strong> Fasilitas fisik dibatasi pada layanan kesehatan, pendidikan, dan fasilitas kritis (satuan <i>POI Density</i>). NTL digunakan sebagai proksi aktivitas ekonomi, dan lahan pertanian bersumber dari kelas <i>Crops</i> Dynamic World.</li>
+            <li class="text-slate-800 dark:text-slate-200"><strong>Metode Pembobotan:</strong> Pembentukan indeks aspek menggunakan <i>Entropy Weight Method</i> (EWM) berdasarkan variasi data, sedangkan penggabungan antar-aspek menjadi Indeks Kerentanan Banjir (IKB) menggunakan <i>equal weighting</i> (bobot 0,25 per aspek).</li>
+            <li class="text-slate-800 dark:text-slate-200"><strong>Interpretasi Hasil:</strong> Nilai IKB menggambarkan posisi kerentanan relatif (rendah, sedang, tinggi) antarkabupaten/kota, bukan peluang terjadinya banjir atau tingkat risiko bencana.</li>
+            <li class="text-slate-800 dark:text-slate-200"><strong>Verifikasi &amp; Evaluasi:</strong> Verifikasi indikator spasial dilakukan via uji visual dan sampel <i>ground truth</i>. Evaluasi dilakukan melalui analisis kuadran membandingkan posisi relatif terhadap data BNPB.</li>
+            <li class="text-slate-800 dark:text-slate-200"><strong>Penyajian Data:</strong> Dashboard interaktif berfungsi sebagai media penyajian dan eksplorasi data, bukan sistem peringatan dini atau pemantauan real-time.</li>
+        </ul>
+    </div>
+</section>
 
     <section class="mt-10" aria-labelledby="team-heading">
         <div class="mb-6">
@@ -211,7 +234,7 @@
         </div>
 
         <div class="grid gap-6 md:grid-cols-2">
-                            
+
                 <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
                     <div class="flex aspect-[4/3] items-center justify-center bg-slate-100 dark:bg-slate-800">
                                                     <img
@@ -231,7 +254,7 @@
 
                                             </div>
                 </article>
-                            
+
                 <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
                     <div class="flex aspect-[4/3] items-center justify-center bg-slate-100 dark:bg-slate-800">
                                                     <img
@@ -244,12 +267,12 @@
 
                     <div class="p-6">
                         <p class="text-sm font-semibold text-blue-600 dark:text-blue-400">
-                            Dosen Pembimbing                        </p>
+                            Dosen Pembimbing</p>
 
                         <h3 class="mt-2 text-xl font-bold">
-                            Ricky Yordani, M. Stat.                        </h3>
+                            Ricky Yordani, M. Stat.</h3>
 
-                                            </div>
+                    </div>
                 </article>
                     </div>
     </section>
@@ -281,7 +304,7 @@
 </section>
         </main>
 
-        
+
 <footer class="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
     <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8 dark:text-slate-400">
         <p>
@@ -293,6 +316,6 @@
 
     <script src="/assets/js/app.js?v=b5d2647696c3"></script>
 
-    
+
 </body>
 </html>

@@ -15,7 +15,7 @@
     >
 
         <meta name="robots" content="noindex, nofollow, noarchive">
-    
+
     <script>
         const savedTheme = localStorage.getItem('ikbs-theme');
         const prefersDark = window.matchMedia(
@@ -39,14 +39,14 @@
     rel="stylesheet"
     href="/vendor/leaflet/dist/leaflet.css?v=a78371028241"
     >
-    
+
     <title>
         Peta Kerentanan | IKB Sumut    </title>
 </head>
 
 <body class="min-h-screen bg-slate-50 text-slate-900 antialiased transition-colors dark:bg-slate-950 dark:text-slate-100">
     <div class="flex min-h-screen flex-col">
-        
+
 <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/90">
     <div class="mx-auto flex max-w-7xl items-center gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <a
@@ -71,25 +71,25 @@
             class="ml-auto flex items-center gap-1 overflow-x-auto rounded-2xl border border-slate-200 bg-slate-100 p-1 dark:border-slate-800 dark:bg-slate-900"
             aria-label="Navigasi utama"
         >
-                            
+
                 <a
                     href="/"
                     class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition bg-white text-blue-700 shadow-sm dark:bg-slate-800 dark:text-blue-400"
                     aria-current="page"                >
                     Peta                </a>
-                            
+
                 <a
                     href="/data/"
                     class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition text-slate-600 hover:bg-white/70 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/70 dark:hover:text-white"
                                     >
                     Data                </a>
-                            
+
                 <a
                     href="/methodology/"
                     class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition text-slate-600 hover:bg-white/70 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/70 dark:hover:text-white"
                                     >
                     Metodologi                </a>
-                            
+
                 <a
                     href="/about/"
                     class="whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition text-slate-600 hover:bg-white/70 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-slate-800/70 dark:hover:text-white"
@@ -108,7 +108,7 @@
 </header>
 
         <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
-            
+
 <section aria-labelledby="page-heading">
     <div class="mb-8">
         <p class="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">
@@ -128,7 +128,7 @@
         </p>
     </div>
 
-            
+
         <div class="grid items-start gap-6 lg:grid-cols-3">
             <aside class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
                 <h2 class="text-lg font-bold">Pengaturan Tampilan</h2>
@@ -142,13 +142,13 @@
                     method="get"
                     class="mt-6 space-y-4"
                     data-static-filter-form                >
-                    
+
                     <div>
                         <label
                             for="layer"
                             class="mb-2 block text-sm font-semibold"
                         >
-                            Layer kerentanan
+                            Filter by
                         </label>
 
                         <select
@@ -158,7 +158,7 @@
                             class="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm text-slate-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
                         >
                                                             <optgroup label="Keseluruhan">
-                                                                            
+
                                         <option
                                             value="overall"
                                                                                             data-static-url="/map/overall/"
@@ -166,25 +166,25 @@
                                             Kerentanan Keseluruhan                                        </option>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </optgroup>
                                                             <optgroup label="Per Aspek">
-                                                                                                                    
+
                                         <option
                                             value="aspekon_environmental"
                                                                                             data-static-url="/map/aspekon_environmental/"
                                                                                                                                 >
                                             Kerentanan Lingkungan                                        </option>
-                                                                            
+
                                         <option
                                             value="aspekon_economic"
                                                                                             data-static-url="/map/aspekon_economic/"
                                                                                                                                 >
                                             Kerentanan Ekonomi                                        </option>
-                                                                            
+
                                         <option
                                             value="aspekon_physical"
                                                                                             data-static-url="/map/aspekon_physical/"
                                                                                                                                 >
                                             Kerentanan Fisik                                        </option>
-                                                                            
+
                                         <option
                                             value="aspekon_social"
                                                                                             data-static-url="/map/aspekon_social/"
@@ -192,79 +192,79 @@
                                             Kerentanan Sosial                                        </option>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </optgroup>
                                                             <optgroup label="Per Indikator">
-                                                                                                                                                                                                                                                                                    
+
                                         <option
                                             value="variable_fdi"
                                                                                             data-static-url="/map/variable_fdi/"
                                                                                                                                 >
                                             FDI                                        </option>
-                                                                            
+
                                         <option
                                             value="variable_mdi"
                                                                                             data-static-url="/map/variable_mdi/"
                                                                                                                                 >
                                             MDI                                        </option>
-                                                                            
+
                                         <option
                                             value="variable_wfi"
                                                                                             data-static-url="/map/variable_wfi/"
                                                                                                                                 >
                                             WFI                                        </option>
-                                                                            
+
                                         <option
                                             value="variable_ntl"
                                                                                             data-static-url="/map/variable_ntl/"
                                                                                                                                 >
                                             NTL                                        </option>
-                                                                            
+
                                         <option
                                             value="variable_agricultural_area"
                                                                                             data-static-url="/map/variable_agricultural_area/"
                                                                                                                                 >
                                             Luas Pertanian                                        </option>
-                                                                            
+
                                         <option
                                             value="variable_bui"
                                                                                             data-static-url="/map/variable_bui/"
                                                                                                                                 >
                                             BUI                                        </option>
-                                                                            
+
                                         <option
                                             value="variable_public_facility_poi"
                                                                                             data-static-url="/map/variable_public_facility_poi/"
                                                                                                                                 >
                                             POI Fasilitas Umum                                        </option>
-                                                                            
+
                                         <option
                                             value="variable_critical_facility_poi"
                                                                                             data-static-url="/map/variable_critical_facility_poi/"
                                                                                                                                 >
                                             POI Fasilitas Kritis                                        </option>
-                                                                            
+
                                         <option
                                             value="variable_population_density"
                                                                                             data-static-url="/map/variable_population_density/"
                                                                                                                                 >
                                             Kepadatan Penduduk                                        </option>
-                                                                            
+
                                         <option
                                             value="variable_sex_ratio"
                                                                                             data-static-url="/map/variable_sex_ratio/"
                                                                                                                                 >
                                             Rasio Jenis Kelamin                                        </option>
-                                                                            
+
                                         <option
                                             value="variable_vulnerable_age_ratio"
                                                                                             data-static-url="/map/variable_vulnerable_age_ratio/"
                                                                                                                                 >
                                             Rasio Kelompok Umur Rentan                                        </option>
-                                                                            
+
                                         <option
                                             value="variable_disability_ratio"
                                                                                             data-static-url="/map/variable_disability_ratio/"
                                                                                         selected                                        >
                                             Rasio Disabilitas                                        </option>
-                                                                            
+
                                         <option
                                             value="variable_poverty_ratio"
                                                                                             data-static-url="/map/variable_poverty_ratio/"
@@ -332,7 +332,7 @@
 
                                     <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
                         IKBS Sumatera Utara 2025                    </p>
-                
+
                 <div class="relative mt-6 overflow-hidden rounded-2xl border border-slate-300 dark:border-slate-700">
                     <div
                         id="ikbs-map"
@@ -385,7 +385,7 @@
     </section>
         </main>
 
-        
+
 <footer class="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
     <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8 dark:text-slate-400">
         <p>
